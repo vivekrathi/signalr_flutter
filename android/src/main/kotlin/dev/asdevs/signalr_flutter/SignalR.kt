@@ -14,7 +14,7 @@ enum class CallMethod(val value: String) {
     Reconnect("reconnect"),
     Stop("stop"),
     ListenToHubMethod("listenToHubMethod"),
-    InvokeServerMethod("invokeServerMethod")
+    InvokeServerMethod("invokeServerMethod"),
     ConnectToServer1("connectToServer1"),
     Reconnect1("reconnect1"),
     Stop1("stop1"),
