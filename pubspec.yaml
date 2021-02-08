@@ -28,7 +28,7 @@ flutter:
     platforms:
       android:
         package: dev.asdevs.signalr_flutter
-        pluginClass: SignalRFlutterPlugin,SignalRFlutterPlugin1
+        pluginClass: SignalRFlutterPlugin                
       ios:
         pluginClass: SignalrFlutterPlugin
 

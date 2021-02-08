@@ -190,7 +190,7 @@ class SignalR1 {
   Future<bool> connect() async {
     try {
       final result = await _channel
-          .invokeMethod<bool>("connectToServer", <String, dynamic>{
+          .invokeMethod<bool>("connectToServer1", <String, dynamic>{
         'baseUrl': baseUrl,
         'hubName': hubName,
         'queryString': queryString ?? "",
@@ -214,7 +214,7 @@ class SignalR1 {
   /// Try to Reconnect SignalR connection if it gets disconnected.
   void reconnect() async {
     try {
-      await _channel.invokeMethod("reconnect");
+      await _channel.invokeMethod("reconnect1");
     } on PlatformException catch (ex) {
       print("Platform Error: ${ex.message}");
       return Future.error(ex.message);
@@ -227,7 +227,7 @@ class SignalR1 {
   /// Stop SignalR connection
   void stop() async {
     try {
-      await _channel.invokeMethod("stop");
+      await _channel.invokeMethod("stop1");
     } on PlatformException catch (ex) {
       print("Platform Error: ${ex.message}");
       return Future.error(ex.message);
@@ -244,7 +244,7 @@ class SignalR1 {
   void subscribeToHubMethod(String methodName) async {
     try {
       assert(methodName != null, "methodName can not be null.");
-      await _channel.invokeMethod("listenToHubMethod", methodName);
+      await _channel.invokeMethod("listenToHubMethod1", methodName);
     } on PlatformException catch (ex) {
       print("Platform Error: ${ex.message}");
       return Future.error(ex.message);
@@ -262,7 +262,7 @@ class SignalR1 {
     try {
       assert(methodName != null, "methodName can not be null.");
       final result = await _channel.invokeMethod<T>(
-          "invokeServerMethod", <String, dynamic>{
+          "invokeServerMethod1", <String, dynamic>{
         'methodName': methodName,
         'arguments': arguments ?? List.empty()
       });
