@@ -171,8 +171,8 @@ class SignalR1 {
 
   static const MethodChannel _channel = const MethodChannel('signalR1');
 
-  static const String CONNECTION_STATUS1 = "ConnectionStatus1";
-  static const String NEW_MESSAGE1 = "NewMessage1";
+  static const String CONNECTION_STATUS = "ConnectionStatus";
+  static const String NEW_MESSAGE = "NewMessage";
 
   SignalR1(this.baseUrl, this.hubName,
       {this.queryString,
@@ -190,7 +190,7 @@ class SignalR1 {
   Future<bool> connect() async {
     try {
       final result = await _channel
-          .invokeMethod<bool>("connectToServer1", <String, dynamic>{
+          .invokeMethod<bool>("connectToServer", <String, dynamic>{
         'baseUrl': baseUrl,
         'hubName': hubName,
         'queryString': queryString ?? "",
@@ -214,7 +214,7 @@ class SignalR1 {
   /// Try to Reconnect SignalR connection if it gets disconnected.
   void reconnect() async {
     try {
-      await _channel.invokeMethod("reconnect1");
+      await _channel.invokeMethod("reconnect");
     } on PlatformException catch (ex) {
       print("Platform Error: ${ex.message}");
       return Future.error(ex.message);
@@ -227,7 +227,7 @@ class SignalR1 {
   /// Stop SignalR connection
   void stop() async {
     try {
-      await _channel.invokeMethod("stop1");
+      await _channel.invokeMethod("stop");
     } on PlatformException catch (ex) {
       print("Platform Error: ${ex.message}");
       return Future.error(ex.message);
@@ -244,7 +244,7 @@ class SignalR1 {
   void subscribeToHubMethod(String methodName) async {
     try {
       assert(methodName != null, "methodName can not be null.");
-      await _channel.invokeMethod("listenToHubMethod1", methodName);
+      await _channel.invokeMethod("listenToHubMethod", methodName);
     } on PlatformException catch (ex) {
       print("Platform Error: ${ex.message}");
       return Future.error(ex.message);
@@ -262,7 +262,7 @@ class SignalR1 {
     try {
       assert(methodName != null, "methodName can not be null.");
       final result = await _channel.invokeMethod<T>(
-          "invokeServerMethod1", <String, dynamic>{
+          "invokeServerMethod", <String, dynamic>{
         'methodName': methodName,
         'arguments': arguments ?? List.empty()
       });
@@ -280,10 +280,10 @@ class SignalR1 {
   void _signalRCallbackHandler() {
     _channel.setMethodCallHandler((call) {
       switch (call.method) {
-        case CONNECTION_STATUS1:
+        case CONNECTION_STATUS:
           statusChangeCallback(call.arguments);
           break;
-        case NEW_MESSAGE1:
+        case NEW_MESSAGE:
           if (call.arguments is List) {
             hubCallback(call.arguments[0], call.arguments[1]);
           } else {

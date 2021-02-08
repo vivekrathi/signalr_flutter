@@ -15,11 +15,6 @@ enum class CallMethod(val value: String) {
     Stop("stop"),
     ListenToHubMethod("listenToHubMethod"),
     InvokeServerMethod("invokeServerMethod"),
-    ConnectToServer1("connectToServer1"),
-    Reconnect1("reconnect1"),
-    Stop1("stop1"),
-    ListenToHubMethod1("listenToHubMethod1"),
-    InvokeServerMethod1("invokeServerMethod1")
 }
 
 object SignalR {
