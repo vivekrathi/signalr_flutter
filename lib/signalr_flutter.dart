@@ -23,7 +23,7 @@ class SignalR {
   /// This callback gets called whenever SignalR server sends some message to client.
   final Function(String, dynamic) hubCallback;
 
-  static const MethodChannel _channel = const MethodChannel('signalR');
+  final MethodChannel _channel = const MethodChannel('signalR');
 
   static const String CONNECTION_STATUS = "ConnectionStatus";
   static const String NEW_MESSAGE = "NewMessage";
@@ -169,7 +169,7 @@ class SignalR1 {
   /// This callback gets called whenever SignalR server sends some message to client.
   final Function(String, dynamic) hubCallback;
 
-  static const MethodChannel _channel = const MethodChannel('signalR');
+  final MethodChannel _channel = const MethodChannel('signalR');
 
   static const String CONNECTION_STATUS1 = "ConnectionStatus1";
   static const String NEW_MESSAGE1 = "NewMessage1";
