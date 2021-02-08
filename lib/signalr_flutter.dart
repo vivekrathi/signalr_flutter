@@ -171,8 +171,8 @@ class SignalR1 {
 
   static const MethodChannel _channel = const MethodChannel('signalR');
 
-  static const String CONNECTION_STATUS = "ConnectionStatus";
-  static const String NEW_MESSAGE = "NewMessage";
+  static const String CONNECTION_STATUS1 = "ConnectionStatus1";
+  static const String NEW_MESSAGE1 = "NewMessage1";
 
   SignalR1(this.baseUrl, this.hubName,
       {this.queryString,
@@ -280,10 +280,10 @@ class SignalR1 {
   void _signalRCallbackHandler() {
     _channel.setMethodCallHandler((call) {
       switch (call.method) {
-        case CONNECTION_STATUS:
+        case CONNECTION_STATUS1:
           statusChangeCallback(call.arguments);
           break;
-        case NEW_MESSAGE:
+        case NEW_MESSAGE1:
           if (call.arguments is List) {
             hubCallback(call.arguments[0], call.arguments[1]);
           } else {
