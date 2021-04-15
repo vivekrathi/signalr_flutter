@@ -1,1 +1,3 @@
 rootProject.name = 'signalr_flutter'
+include ':app', ':signalr-client-sdk'
+include ':app', ':signalr-client-sdk-android'

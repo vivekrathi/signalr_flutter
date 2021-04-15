@@ -1,3 +1,6 @@
+include ':signalr-client-sdk-android'
+include ':signalr-client-sdk'
+include ':signalr-client-sdk'
 include ':app'
 
 def localPropertiesFile = new File(rootProject.projectDir, "local.properties")

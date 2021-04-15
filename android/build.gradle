@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.code.gson:gson:2.8.6'
-    compile files('libs/signalr-client-sdk.jar')
-    compile files('libs/signalr-client-sdk-android.jar')
+    implementation project(":signalr-client-sdk")
+    implementation project(path: ':signalr-client-sdk-android')
+    //compile files('libs/signalr-client-sdk.jar')
 }
